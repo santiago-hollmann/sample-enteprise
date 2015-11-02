@@ -4,9 +4,6 @@ import java.util.Random;
 
 public class Race {
     private String name;
-    private short bestSkillMultiplier;
-    private short goodSkillMultiplier;
-    private short regularSkillMultiplier;
     private Position bestSkill;
     private Position goodSkill;
     private Position regularSkill;
@@ -17,30 +14,6 @@ public class Race {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public short getBestSkillMultiplier() {
-        return bestSkillMultiplier;
-    }
-
-    public void setBestSkillMultiplier(short bestSkillMultiplier) {
-        this.bestSkillMultiplier = bestSkillMultiplier;
-    }
-
-    public short getGoodSkillMultiplier() {
-        return goodSkillMultiplier;
-    }
-
-    public void setGoodSkillMultiplier(short goodSkillMultiplier) {
-        this.goodSkillMultiplier = goodSkillMultiplier;
-    }
-
-    public short getRegularSkillMultiplier() {
-        return regularSkillMultiplier;
-    }
-
-    public void setRegularSkillMultiplier(short regularSkillMultiplier) {
-        this.regularSkillMultiplier = regularSkillMultiplier;
     }
 
     public Position getBestSkill() {
@@ -94,5 +67,16 @@ public class Race {
         return new Race();
 
 
+    }
+
+    public short getMultiplierForPosition(Position position) {
+        if (position == bestSkill) {
+            return 3;
+        } else if (position == goodSkill) {
+            return 2;
+        } else if (position == regularSkill) {
+            return 1;
+        }
+        return 0;
     }
 }

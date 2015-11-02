@@ -3,7 +3,6 @@ package com.shollmann.enterprise.ui.activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,10 +14,8 @@ import com.shollmann.enterprise.ui.adapter.CrewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import model.Member;
-import model.Race;
 
 public class CrewListActivity extends AppCompatActivity {
     private RecyclerView recyclerCrewList;
@@ -36,13 +33,12 @@ public class CrewListActivity extends AppCompatActivity {
     private void initialize() {
         toolbar.setTitle(getResources().getString(R.string.app_name));
         setSupportActionBar(toolbar);
-        setupRecyclerView(listCrewMembers);
+        new GenerateCrewAsyncTask().execute();
 
         fabGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                new GenerateCrewAsyncTask().execute();
             }
         });
 
@@ -66,7 +62,6 @@ public class CrewListActivity extends AppCompatActivity {
     }
 
     private class GenerateCrewAsyncTask extends AsyncTask<Void, Void, List<Member>> {
-        private Random rnd = new Random();
 
         protected List<Member> doInBackground(Void... urls) {
             return generateCrewList();
@@ -75,9 +70,8 @@ public class CrewListActivity extends AppCompatActivity {
         private List<Member> generateCrewList() {
             List<Member> listMembers = new ArrayList<>();
             Member newMember;
-            Race newRace;
             for (int i = 0; i < 450; i++) {
-                newMember = new Member();
+                newMember = new Member(i);
                 listMembers.add(newMember);
             }
             return null;
