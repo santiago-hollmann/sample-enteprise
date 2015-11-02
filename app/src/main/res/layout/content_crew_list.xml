@@ -1,20 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:padding="16dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_crew_list"
-    tools:context=".CrewListActivity">
+    tools:context=".CrewListActivity"
+    tools:showIn="@layout/activity_crew_list">
+
+    <View
+        android:id="@+id/content_crew_position_color"
+        android:layout_width="@dimen/finger_size"
+        android:layout_height="@dimen/finger_size"
+        android:background="@color/red"/>
 
     <TextView
-        android:text="Hello World!"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:id="@+id/content_crew_multiplier"
+        android:layout_width="@dimen/finger_size"
+        android:layout_height="@dimen/finger_size"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="3X"
+        android:textSize="24dp"/>
+
+    <TextView
+        android:id="@+id/content_crew_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/content_crew_multiplier"
+        android:layout_toRightOf="@id/content_crew_position_color"
+        android:maxLength="2"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="Santiago"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/content_crew_race"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/content_crew_name"
+        android:layout_toLeftOf="@id/content_crew_multiplier"
+        android:layout_toRightOf="@id/content_crew_position_color"
+        android:paddingLeft="@dimen/view_padding"
+        android:paddingRight="16dp"
+        android:singleLine="true"
+        android:text="Human"
+        android:textSize="16sp"/>
 </RelativeLayout>

@@ -4,7 +4,7 @@ public class Race {
     private String name;
     private short bestSkillMultiplier;
     private short goodSkillMultiplier;
-    private short regularSkillMultipler;
+    private short regularSkillMultiplier;
     private Position bestSkill;
     private Position goodSkill;
     private Position regularSkill;
@@ -33,12 +33,12 @@ public class Race {
         this.goodSkillMultiplier = goodSkillMultiplier;
     }
 
-    public short getRegularSkillMultipler() {
-        return regularSkillMultipler;
+    public short getRegularSkillMultiplier() {
+        return regularSkillMultiplier;
     }
 
-    public void setRegularSkillMultipler(short regularSkillMultipler) {
-        this.regularSkillMultipler = regularSkillMultipler;
+    public void setRegularSkillMultiplier(short regularSkillMultiplier) {
+        this.regularSkillMultiplier = regularSkillMultiplier;
     }
 
     public Position getBestSkill() {
