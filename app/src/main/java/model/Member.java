@@ -28,4 +28,12 @@ public class Member {
     public void setPosition(Position position) {
         this.position = position;
     }
+
+    public String getRaceName() {
+        return race.getName();
+    }
+
+    public String getSkillMultiplierForPosition() {
+        return "";
+    }
 }
