@@ -1,4 +1,5 @@
 Your mission as a Starfleet developer is:
+
 ● Model the necessary class (or classes).
 
 ● Randomly generate the data for a test. Take into account that the USS Enterprise has a crew complement of no less than 430. This process will be considered of anindeterminate amount of time.
