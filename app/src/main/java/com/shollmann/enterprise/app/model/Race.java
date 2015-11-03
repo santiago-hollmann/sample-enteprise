@@ -64,7 +64,7 @@ public class Race {
                 race.setRegularSkill(Position.COMMANDER);
                 break;
         }
-        return new Race();
+        return race;
 
 
     }
