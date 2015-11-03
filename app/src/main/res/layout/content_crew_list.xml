@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView
-    android:id="@+id/card_view"
+    android:id="@+id/content_crew_card_view"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    card_view:cardCornerRadius="4dp">
+    app:cardCornerRadius="@dimen/radius">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/view_padding"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".CrewListActivity"
-        tools:showIn="@layout/activity_crew_list">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <View
             android:id="@+id/content_crew_position_color"
             android:layout_width="@dimen/finger_size"
-            android:layout_height="@dimen/finger_size"
-            android:background="@color/red"/>
+            android:layout_height="@dimen/finger_size"/>
 
         <TextView
             android:id="@+id/content_crew_multiplier"
@@ -31,7 +25,6 @@
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:singleLine="true"
-            android:text="3X"
             android:textSize="@dimen/extra_big_text"/>
 
         <TextView
@@ -43,7 +36,6 @@
             android:maxLines="2"
             android:paddingLeft="@dimen/view_padding"
             android:paddingRight="@dimen/view_padding"
-            android:text="Santiago"
             android:textSize="@dimen/normal_text"/>
 
         <TextView
@@ -56,7 +48,6 @@
             android:paddingLeft="@dimen/view_padding"
             android:paddingRight="@dimen/view_padding"
             android:singleLine="true"
-            android:text="Human"
             android:textSize="16sp"/>
     </RelativeLayout>
 </android.support.v7.widget.CardView>

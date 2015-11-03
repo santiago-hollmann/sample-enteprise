@@ -11,10 +11,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.shollmann.enterprise.R;
+import com.shollmann.enterprise.app.model.CrewComparator;
 import com.shollmann.enterprise.app.model.CrewMember;
 import com.shollmann.enterprise.app.ui.adapter.CrewAdapter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CrewListActivity extends AppCompatActivity {
@@ -78,7 +80,7 @@ public class CrewListActivity extends AppCompatActivity {
                 newCrewMember = new CrewMember(i);
                 listCrewMembers.add(newCrewMember);
             }
-//            Collections.sort(listCrewMembers, CrewComparator.BY_SKILLS_AND_NAME);
+            Collections.sort(listCrewMembers, CrewComparator.BY_SKILLS_AND_NAME);
             return listCrewMembers;
         }
 
