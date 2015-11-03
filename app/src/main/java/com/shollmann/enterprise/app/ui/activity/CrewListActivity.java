@@ -20,6 +20,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class CrewListActivity extends AppCompatActivity {
+    public static final int CREW_MEMBERS = 450;
+
     private RecyclerView recyclerCrewList;
     private Toolbar toolbar;
     private TextView txtCrewIsLoading;
@@ -36,15 +38,26 @@ public class CrewListActivity extends AppCompatActivity {
     private void initialize() {
         toolbar.setTitle(getResources().getString(R.string.app_name));
         setSupportActionBar(toolbar);
-        new GenerateCrewAsyncTask().execute();
+        populateShip();
 
         fabGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new GenerateCrewAsyncTask().execute();
+                populateShip();
             }
         });
 
+    }
+
+    private void populateShip() {
+        /*
+            I discourage the use of async tasks because of its known issues.
+            I decided to use it here to avoid running a task that could be heavy
+            on the UI thread.
+            If I would have used an API I would have populated async with Retrofit or
+            a Service
+         */
+        new GenerateCrewAsyncTask().execute();
     }
 
     private void setupRecyclerView(List<CrewMember> listCrewCrewMembers) {
@@ -76,7 +89,7 @@ public class CrewListActivity extends AppCompatActivity {
         private List<CrewMember> generateCrewList() {
             List<CrewMember> listCrewMembers = new ArrayList<>();
             CrewMember newCrewMember;
-            for (int i = 0; i < 450; i++) {
+            for (int i = 0; i < CREW_MEMBERS; i++) {
                 newCrewMember = new CrewMember(i);
                 listCrewMembers.add(newCrewMember);
             }
