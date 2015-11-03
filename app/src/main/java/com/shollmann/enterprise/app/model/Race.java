@@ -1,4 +1,4 @@
-package model;
+package com.shollmann.enterprise.app.model;
 
 import java.util.Random;
 

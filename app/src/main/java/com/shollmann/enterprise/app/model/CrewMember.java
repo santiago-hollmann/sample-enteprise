@@ -1,13 +1,13 @@
-package model;
+package com.shollmann.enterprise.app.model;
 
 import java.util.Random;
 
-public class Member {
+public class CrewMember {
     private String name;
     private Race race;
     private Position position;
 
-    public Member(int creationId) {
+    public CrewMember(int creationId) {
         race = Race.generateRace();
         position = generatePosition();
         name = generateName(creationId);
@@ -70,5 +70,9 @@ public class Member {
 
     public String getSkillMultiplierForPosition() {
         return race.getMultiplierForPosition(position) + "X";
+    }
+
+    public short getSkills() {
+        return race.getMultiplierForPosition(position);
     }
 }

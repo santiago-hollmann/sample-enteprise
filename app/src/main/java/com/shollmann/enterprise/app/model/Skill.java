@@ -1,4 +1,4 @@
-package model;
+package com.shollmann.enterprise.app.model;
 
 public class Skill {
     private String name;

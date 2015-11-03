@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Enterprise</string>
     <string name="action_settings">Settings</string>
+    <string name="crew_is_boarding">The crew is boarding to the ship...</string>
 </resources>

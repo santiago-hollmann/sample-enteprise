@@ -1,4 +1,4 @@
-package com.shollmann.enterprise.ui.adapter;
+package com.shollmann.enterprise.app.ui.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,17 +6,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.shollmann.enterprise.R;
-import com.shollmann.enterprise.ui.viewholder.CrewMemberViewHolder;
+import com.shollmann.enterprise.app.ui.viewholder.CrewMemberViewHolder;
 
 import java.util.List;
 
-import model.Member;
+import com.shollmann.enterprise.app.model.CrewMember;
 
 public class CrewAdapter extends RecyclerView.Adapter<CrewMemberViewHolder> {
-    private List<Member> listCrewMembers;
+    private List<CrewMember> listCrewCrewMembers;
 
-    public CrewAdapter(List<Member> listCrewMembers) {
-        this.listCrewMembers = listCrewMembers;
+    public CrewAdapter(List<CrewMember> listCrewCrewMembers) {
+        this.listCrewCrewMembers = listCrewCrewMembers;
     }
 
     @Override
@@ -29,12 +29,12 @@ public class CrewAdapter extends RecyclerView.Adapter<CrewMemberViewHolder> {
 
     @Override
     public void onBindViewHolder(CrewMemberViewHolder holder, int position) {
-        holder.setMember(listCrewMembers.get(position));
+        holder.setMember(listCrewCrewMembers.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return listCrewMembers.size();
+        return listCrewCrewMembers.size();
     }
 
 }

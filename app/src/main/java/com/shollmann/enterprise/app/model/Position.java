@@ -1,4 +1,4 @@
-package model;
+package com.shollmann.enterprise.app.model;
 
 public enum Position {
     COMMANDER, ENGINEER, SCIENTIST;

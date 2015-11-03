@@ -1,19 +1,18 @@
-package com.shollmann.enterprise.ui.viewholder;
+package com.shollmann.enterprise.app.ui.viewholder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.shollmann.enterprise.R;
-
-import model.Member;
+import com.shollmann.enterprise.app.model.CrewMember;
 
 public class CrewMemberViewHolder extends RecyclerView.ViewHolder {
     private TextView txtName;
     private TextView txtRace;
     private View viewPositionColor;
     private TextView txtSkillMultiplier;
-    private Member member;
+    private CrewMember member;
 
     public CrewMemberViewHolder(View view) {
         super(view);
@@ -24,7 +23,7 @@ public class CrewMemberViewHolder extends RecyclerView.ViewHolder {
         return;
     }
 
-    public void setMember(Member member) {
+    public void setMember(CrewMember member) {
         this.member = member;
         txtRace.setText(member.getRaceName());
         txtName.setText(member.getName());

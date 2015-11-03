@@ -1,4 +1,4 @@
-package com.shollmann.enterprise.ui.activity;
+package com.shollmann.enterprise.app.ui.activity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,18 +8,21 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.shollmann.enterprise.R;
-import com.shollmann.enterprise.ui.adapter.CrewAdapter;
+import com.shollmann.enterprise.app.model.CrewComparator;
+import com.shollmann.enterprise.app.model.CrewMember;
+import com.shollmann.enterprise.app.ui.adapter.CrewAdapter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-
-import model.Member;
 
 public class CrewListActivity extends AppCompatActivity {
     private RecyclerView recyclerCrewList;
     private Toolbar toolbar;
+    private TextView txtCrewIsLoading;
     private FloatingActionButton fabGenerate;
 
     @Override
@@ -44,42 +47,47 @@ public class CrewListActivity extends AppCompatActivity {
 
     }
 
-    private void setupRecyclerView(List<Member> listCrewMembers) {
+    private void setupRecyclerView(List<CrewMember> listCrewCrewMembers) {
         recyclerCrewList.setHasFixedSize(true);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerCrewList.setLayoutManager(layoutManager);
 
-        CrewAdapter crewAdapter = new CrewAdapter(listCrewMembers);
+        CrewAdapter crewAdapter = new CrewAdapter(listCrewCrewMembers);
         recyclerCrewList.setAdapter(crewAdapter);
+
+        recyclerCrewList.setVisibility(View.VISIBLE);
 
     }
 
     private void findViews() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         recyclerCrewList = (RecyclerView) findViewById(R.id.crew_recyclerview);
+        txtCrewIsLoading = (TextView) findViewById(R.id.crew_loading_data);
         fabGenerate = (FloatingActionButton) findViewById(R.id.crew_fab);
     }
 
-    private class GenerateCrewAsyncTask extends AsyncTask<Void, Void, List<Member>> {
+    private class GenerateCrewAsyncTask extends AsyncTask<Void, Void, List<CrewMember>> {
 
-        protected List<Member> doInBackground(Void... urls) {
+        protected List<CrewMember> doInBackground(Void... urls) {
             return generateCrewList();
         }
 
-        private List<Member> generateCrewList() {
-            List<Member> listMembers = new ArrayList<>();
-            Member newMember;
+        private List<CrewMember> generateCrewList() {
+            List<CrewMember> listCrewMembers = new ArrayList<>();
+            CrewMember newCrewMember;
             for (int i = 0; i < 450; i++) {
-                newMember = new Member(i);
-                listMembers.add(newMember);
+                newCrewMember = new CrewMember(i);
+                listCrewMembers.add(newCrewMember);
             }
-            return null;
+            Collections.sort(listCrewMembers, CrewComparator.BY_SKILLS_AND_NAME);
+            return listCrewMembers;
         }
 
 
-        protected void onPostExecute(List<Member> listCrewMembers) {
-            setupRecyclerView(listCrewMembers);
+        protected void onPostExecute(List<CrewMember> listCrewCrewMembers) {
+            txtCrewIsLoading.setVisibility(View.GONE);
+            setupRecyclerView(listCrewCrewMembers);
         }
     }
 
