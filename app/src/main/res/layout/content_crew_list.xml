@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="@dimen/view_padding"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".CrewListActivity"
     tools:showIn="@layout/activity_crew_list">
@@ -24,7 +24,7 @@
         android:gravity="center"
         android:singleLine="true"
         android:text="3X"
-        android:textSize="24dp"/>
+        android:textSize="@dimen/extra_big_text"/>
 
     <TextView
         android:id="@+id/content_crew_name"
@@ -33,10 +33,10 @@
         android:layout_toLeftOf="@id/content_crew_multiplier"
         android:layout_toRightOf="@id/content_crew_position_color"
         android:maxLength="2"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:paddingLeft="@dimen/view_padding"
+        android:paddingRight="@dimen/view_padding"
         android:text="Santiago"
-        android:textSize="16sp"/>
+        android:textSize="@dimen/normal_text"/>
 
     <TextView
         android:id="@+id/content_crew_race"
@@ -46,7 +46,7 @@
         android:layout_toLeftOf="@id/content_crew_multiplier"
         android:layout_toRightOf="@id/content_crew_position_color"
         android:paddingLeft="@dimen/view_padding"
-        android:paddingRight="16dp"
+        android:paddingRight="@dimen/view_padding"
         android:singleLine="true"
         android:text="Human"
         android:textSize="16sp"/>
